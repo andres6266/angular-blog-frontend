@@ -1,0 +1,22 @@
+<div class="loading" *ngIf="!posts">
+    Cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="posts">
+
+    <div class="col-md-12">
+        <h1>{{page_title}}</h1>
+        <hr>
+        <!-- Listado de entradas -->
+
+        <!-- Se envia las variables respectivas al componente -->
+        <!-- [Variable]="variable" 
+             (TransmisorMetodo)="metodo()"-->
+        <post-list 
+                   [posts]="posts"
+                   [identity]="identity"
+                   [url]="url"
+
+                   (eliminarPorId)="deletePost($event)"></post-list>
+    </div>
+</div>

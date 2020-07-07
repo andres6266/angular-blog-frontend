@@ -1,0 +1,19 @@
+<div class="loading" *ngIf="!category">
+    Cargando...
+</div>
+
+
+<div class="container-fluid mt-3" *ngIf="category">
+
+    <div class="col-md-12">
+        <h1>{{page_title}}</h1>
+        <hr>
+        <div class="alert alert-warning" *ngIf="cuantity==false">
+            No tiene entradas aun esta categoria
+        </div>
+
+        <!-- [Variable]="variable" 
+             (TransmisorMetodo)="metodo()"-->
+        <post-list [posts]="posts" [identity]="identity" [url]="url" (eliminarPorId)="deletePost($event)"></post-list>
+    </div>
+</div>

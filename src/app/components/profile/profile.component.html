@@ -1,0 +1,29 @@
+<div class="loading" *ngIf="!posts">
+    Cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="posts">
+    <div *ngIf="identity && identity.image" class="data float-left profile-picture mr-3">
+
+        <img src="{{url+'user/avatar/'+identity.image}}" class="avatar-nav">
+    </div>
+    <div class="float-left">
+
+        <h1>{{user.name}} - {{user.surname}}</h1>
+
+        <!-- Para que imprima el texto con HTML -->
+        <p [innerHtml]="user.description"></p>
+    </div>
+    <!-- Comprobar si el usuario ya tiene imagen y si la tiene mostrar -->
+
+    <div class="clearfix"></div>
+
+    <div class="col-md-12">
+
+        <hr>
+        <!-- Se envia las variables respectivas al componente -->
+        <!-- [Variable]="variable" 
+             (TransmisorMetodo)="metodo()"-->
+        <post-list [posts]="posts" [identity]="identity" [url]="url" (eliminarPorId)="deletePost($event)"></post-list>
+    </div>
+</div>

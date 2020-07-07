@@ -1,0 +1,10 @@
+<div class="col-md-12 mt-3" *ngIf="post">
+    <h1>{{post.title}}</h1>
+    <p>
+       {{post['category'].name}} - <a [routerLink]="['/mi-perfil',post['user'].id]">{{post['user'].name}} {{post['user'].surname}}</a> 
+    </p>
+    <hr>
+    <!-- Para que imprima el texto con HTML -->
+    <p [innerHtml]="post.content"></p>
+</div>
+<div class="col-md-12" *ngIf="!post">Cargando..</div>
